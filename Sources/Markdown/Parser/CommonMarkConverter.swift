@@ -581,6 +581,7 @@ struct MarkupParser {
         cmark_parser_attach_syntax_extension(parser, cmark_find_syntax_extension("table"))
         cmark_parser_attach_syntax_extension(parser, cmark_find_syntax_extension("strikethrough"))
         cmark_parser_attach_syntax_extension(parser, cmark_find_syntax_extension("tasklist"))
+        cmark_parser_attach_syntax_extension(parser, cmark_find_syntax_extension("autolink"))
         cmark_parser_feed(parser, string, string.utf8.count)
         let rawDocument = cmark_parser_finish(parser)
         let initialState = MarkupConverterState(source: source, iterator: cmark_iter_new(rawDocument), event: CMARK_EVENT_NONE, node: nil, options: options, headerSeen: false, pendingTableBody: nil).next()
